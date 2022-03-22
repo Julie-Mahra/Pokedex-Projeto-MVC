@@ -1,0 +1,28 @@
+{
+    "name": "pokedex-projeto-mvc",
+    "version": "1.0.0",
+    "description": "Projeto mvc Pokédex",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Julie-Mahra/Pokedex-Projeto-MVC.git"
+    },
+    "author": "Juliana Mara",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Julie-Mahra/Pokedex-Projeto-MVC/issues"
+    },
+    "homepage": "https://github.com/Julie-Mahra/Pokedex-Projeto-MVC#readme",
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "express": "^4.17.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}
