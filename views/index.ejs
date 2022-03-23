@@ -1,105 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Projeto 2 BlueEdTech - Pokédex</title>
+    <title>Projeto BlueEdTech - Pokédex</title>
 </head>
+<nav>
+
+    <ul>
+        <li><img src="https://www.pngarts.com/files/3/Pokemon-Pikachu-Free-PNG-Image.png" alt=""></li>
+        <li>
+            <h1>Pokédex</h1>
+        </li>
+        <li>
+            <a href="#cadastro">Incluir</a>
+        </li>
+        <li> <a href="#cards">Pokemons</a></li>
+
+    </ul>
+</nav>
+
 
 <body>
 
-    <header>
-
-        <h1>Pokédex</h1>
-
-    </header>
-
     <main>
 
-        <section id="cadastro">
-
-            <% if (pokemon == undefined) {%>
-
-                <h2>Cadrastrar um novo Pokemon!</h2>
-
-                <form action="/create" method="POST">
-
-                    <label for="nome">NOME:</label>
-                    <input type="text" id="nome" name="nome">
-
-                    <label for="descricao">DESCRIÇÃO:</label>
-                    <input type="text" id="descricao" name="descricao">
-
-                    <label for="tipo">TIPO:</label>
-                    <input type="text" id="tipo" name="tipo">
-
-                    <label for="imagem">LINK DA IMAGEM:</label>
-                    <input type="text" id="imagem" name="imagem">
-
-                    <button id="btnCadrastrar" type="submit">Cadrastrar</button>
-
-                </form>
-
-                <% } else { %>
-
-                    <h2>Atualizar Pokemon </h2>
-
-                    <form action="/update/" <%=m pokemon.id %> method="POST">
-
-                        <label for="nome">NOME:</label>
-                        <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
-
-                        <label for="descricao">DESCRIÇÃO:</label>
-                        <input type="text" id="descricao" name="descricao" value="<%= pokemon.descricao %>">
-
-                        <label for=" tipo ">TIPO:</label>
-                        <input type="text " id="tipo " name="tipo " value="<%= pokemon.tipo %>">
-
-                        <label for="imagem ">LINK DA IMAGEM:</label>
-                        <input type="text " id="imagem " name="imagem " value="<%= pokemon.imagem %>">
-
-                        <button id="btnAtualizar" type="submit">Atualizar</button>
-
-                    </form>
-
-                    <% } %>
-
-        </section>
 
 
 
-        <section id="cards">
+        <section id='cards'>
+            <h2>Pokemons Disponíveis</h2>
 
-            <h2 <% pokedex.forEach((pokemon)=> { %>
-
+            <% pokedex.forEach((pokemon)=> { %>
                 <div class="card">
-                    <img src=" <%= pokemon.imagem %>" alt="">
+                    <img src="<%= pokemon.imagem %>" alt="">
                     <h3>
                         <%= pokemon.nome %>
                     </h3>
                     <p class="descricao">
                         <%= pokemon.descricao %>
                     </p>
-                    <p> Tipo:
+                    <p>Tipo:
                         <%= pokemon.tipo %>
                     </p>
-                    <a href="/detalhes/<%= pokemon.id %>">Editar</a>
-
+                    <a id="editar" href="/detalhes/<%= pokemon.id %>">Editar</a>
+                    <a id="apagar" href="/delete/<%= pokemon.id %>">Apagar</a>
                 </div>
-
                 <% }) %>
+
+        </section>
+        <section id="cadastro">
+
+            <img src="https://www.pngarts.com/files/4/Pokeball-Download-Transparent-PNG-Image.png" alt="Pokedex">
+
+            <div>
+                <% if (pokemon==undefined) { %>
+                    <h2>Cadastre um novo Pokemon!</h2>
+                    <form action="/create" method="POST">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome">
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" id="descricao" name="descricao">
+                        <label for="tipo">Tipo:</label>
+                        <input type="text" id="tipo" name="tipo">
+                        <label for="imagem">Link da Imagem</label>
+                        <input type="text" id="imagem" name="imagem">
+                        <button id="btnCadastrar" type="submit">Cadastrar</button>
+                    </form>
+                    <% } else { %>
+                        <h2>Atualização do Pokemon</h2>
+                        <form action="/update/<%= pokemon.id %>" method="POST">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" id="descricao" name="descricao" value="<%= pokemon.descricao %>">
+                            <label for="tipo">Tipo:</label>
+                            <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %>">
+                            <label for="imagem">Link da Imagem</label>
+                            <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %>">
+                            <button id="btnAtualizar" type="submit">Atualizar</button>
+                        </form>
+                        <% } %>
+            </div>
 
         </section>
 
 
-
     </main>
 
-</body>
+    <footer>
+        <p>Projeto - 02 BlueEdTech Módulo 02 - Pokédex por<a>//github.com/Julie-Mahra</a></p>
 
-</html>
+        <p>Dados retidados de
+            <a> https://www.pokemon.com/br/pokedex</a>
+        </p>
+
+
+
+    </footer>
+
+</body>
 
 </html>
