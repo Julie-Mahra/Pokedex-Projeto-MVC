@@ -1,34 +1,56 @@
-/*parte da estilização do projeto, onde serão adicionadas as estéticas da pagina*/
-
-
-/*Estilização do cabeçário da página (margens, paddings e letreiro*/
+body {
+    background-image: url(./img/Pokebola.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Roboto, Lucida Sans;
+    font-family: Lucida Sans;
+    scroll-behavior: smooth;
 }
 
-header {
+nav {
+    position: initial;
+    z-index: 9999;
+}
+
+nav ul {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    background-color: transparent;
+}
+
+nav ul li {
     padding: 2rem;
-    background-color: rgb(141, 181, 214);
+    background-color: transparent;
+    display: flex;
 }
 
-header h1 {
-    color: rgb(29, 61, 92);
-    font-size: 2rem;
+nav img {
+    width: 60%;
+    background-color: transparent;
+}
+
+nav h1 {
+    padding: 1rem;
+    background-color: transparent;
     text-align: center;
+    font-size: 5rem;
 }
 
-
-/*Estilização da Main (margens, espaçamentos)*/
+nav ul li a {
+    font-size: 2rem;
+    color: antiquewhite;
+}
 
 main {
     margin: 0 10rem 0 10rem;
 }
-
-
-/*Estilização das cartas que contém os Pokemons*/
 
 section#cards {
     display: flex;
@@ -38,65 +60,147 @@ section#cards {
 }
 
 section#cards div.card {
-    width: 20rem;
-    box-shadow: inset 0 0 1em rgb(9, 96, 136), 0 0 1em rgb(75, 228, 202);
+    width: 20%;
+    box-shadow: inset 0 0 1em rgba(77, 77, 80, 0.815);
     padding: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0 3rem 0;
+    background-color: #fff;
+}
+
+section#cards h2 {
+    width: 100%;
+    text-align: center;
 }
 
 section#cards div.card img {
     width: 100%;
-    box-shadow: inset 0 0 1em rgb(80, 139, 207), 0 0 1em rgb(49, 103, 202);
+    background-color: #fff;
 }
 
-section#cards div.card h2 {
+section#cards div.card h3 {
     margin-bottom: 1rem;
+    background-color: #fff;
 }
 
 section#cards div.card p.descricao {
-    margin: bottom 1rem;
+    margin-bottom: 2rem;
+    background-color: #fff;
 }
 
-section#cadastrar {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 5rem;
-}
-
-section#cadastrar h2 {
-    width: 100%;
-    text-align: center;
-    padding-bottom: 2rem;
-}
-
-section#cadastrar form input {
-    width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-    outline: none;
-    border: solid 2px rgb(48, 116, 104);
-}
-
-section#cadastrar form label {
-    margin-bottom: 1rem;
-}
-
-section#cadastrar form button {
-    padding: 0.9rem;
-    width: 20%;
+section#cards div.card a#editar {
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     margin: 0 auto;
     font-size: 1rem;
-    background-color: rgb(96, 187, 157);
-    border: solid 1px rgb(5, 58, 44);
-    color: rgb(202, 233, 223);
+    background-color: rgb(231, 241, 240);
+    border: solid 1px #15411b;
+    color: black;
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    margin-top: 2rem;
+    background-color: rgba(197, 197, 202, 0.815);
+    ;
 }
 
-section#cadastrar form button:hover {
-    background-color: rgba(68, 68, 158, 0.698);
-    color: #fff;
+section#cards div.card a#apagar {
+    padding: 0.6rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 1rem;
+    background-color: rgba(197, 197, 202, 0.815);
+    border: solid 1px #15411b;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+section#cards div.card a#editar:hover {
+    background-color: #9feec6;
+    color: black;
+}
+
+section#cards div.card a#apagar:hover {
+    background-color: #ec9a81;
+    color: black;
+}
+
+section#cadastro {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+}
+
+section#cadastro img {
+    width: 30%;
+    height: 30%;
+}
+
+section#cadastro h2 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 5rem;
+    color: black;
+}
+
+section#cadastro form {
+    width: 100%;
+}
+
+section#cadastro form input {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    outline: none;
+    border: solid rgba(197, 197, 202, 0.815);
+    margin: 0 1rem 1rem 1rem;
+}
+
+section#cadastro form label {
+    margin: 1rem;
+    color: rgba(197, 197, 202, 0.815);
+}
+
+section#cadastro form button {
+    padding: 0.5rem;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 3rem;
+    background-color: #fff;
+    border: solid rgba(197, 197, 202, 0.815);
+    color: black;
+    cursor: pointer;
+}
+
+section#cadastro form button:hover {
+    background-color: rgba(197, 197, 202, 0.815);
+    color: #7a777c;
+}
+
+footer {
+    box-shadow: inset 0 0 1em rgba(77, 77, 80, 0.815);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer p {
+    width: 100%;
+    color: rgb(11, 43, 9);
+    text-align: center;
+    font-size: 1.5rem;
+    padding: .3rem;
+}
+
+footer p a {
+    text-decoration: none;
+    color: rgb(11, 43, 9);
+    font-weight: 600;
 }

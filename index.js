@@ -1,8 +1,6 @@
 //CONFIGURAÇÕES:
-//import express from "express"
 const express = require("express");
 const path = require("path");
-const res = require("express/lib/response ");
 const app = express();
 
 
@@ -17,6 +15,7 @@ const pokedex = [{
         descricao: "Eating a twig fills it with energy, and its roomy ears give vent to air hotter than 390 degrees Fahrenheit.",
         tipo: "FIRE",
         imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/653.png",
+
     },
     {
         id: 2,
@@ -31,6 +30,13 @@ const pokedex = [{
         descricao: "Zorua is a timid Pokémon. This disposition seems to be what led to the development of Zorua is ability to take on the forms of other creatures.",
         tipo: "DARK",
         imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/570.png",
+    },
+    {
+        id: 4,
+        nome: "Togepi ",
+        descricao: "The shell seems to be filled with joy. It is said that it will share good luck when treated kindly.",
+        tipo: "FAIRY",
+        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png",
     }
 ];
 
@@ -45,24 +51,32 @@ app.post("/create", (req, res) => {
     const pokemon = req.body;
     pokemon.id = pokedex.length + 1;
     pokedex.push(pokemon);
-    res.redirect("/");
+    res.redirect("/#cards");
 });
 
 app.get("/detalhes/:id", (req, res) => {
     const id = +req.params.id;
     pokemon = pokedex.find((pokemon) => pokemon.id === id);
-    res.redirect("/");
+    res.redirect("/#cadastro");
 });
 
 app.post("/update/:id", (req, res) => {
     const id = +req.params.id - 1;
-    const newPokemon = req.boby
-    console.log(newPokemon);
+    const newPokemon = req.body;
+    newPokemon.id = id + 1;
     pokedex[id] = newPokemon;
-    res.redirect("/");
+    pokemon = undefined;
+    res.redirect("/#cards");
 });
 
-const port = 3001
+app.get("/delete/:id", (req, res) => {
+    const id = +req.params.id - 1;
+    delete pokedex[id];
+
+    res.redirect("/#cards");
+});
+//Porta na qual o servidor ira rodar
+const port = 3001;
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)
 });
